@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0b16" />
+      <stop offset="50%" stop-color="#11162b" />
+      <stop offset="100%" stop-color="#080914" />
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff4b72" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <radialGradient id="orb1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0" />
+    </radialGradient>
+    
+    <radialGradient id="orb2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <style>
+    @keyframes pulseOrb {
+      0%, 100% { transform: scale(1) translate(0px, 0px); opacity: 0.4; }
+      50% { transform: scale(1.15) translate(20px, -15px); opacity: 0.7; }
+    }
+    @keyframes dashMove {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -400; }
+    }
+    @keyframes floatPill1 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes floatPill2 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(8px); }
+    }
+    .orb-anim1 { animation: pulseOrb 8s ease-in-out infinite alternate; transform-origin: center; }
+    .dash-line { stroke-dasharray: 8 12; animation: dashMove 20s linear infinite; }
+    .pill1 { animation: floatPill1 4s ease-in-out infinite; }
+    .pill2 { animation: floatPill2 5s ease-in-out infinite; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="360" fill="url(#bgGradient)" rx="16" />
+
+  <!-- Subtle Blueprint Grid Pattern -->
+  <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
+    <line x1="0" y1="60" x2="1200" y2="60" />
+    <line x1="0" y1="120" x2="1200" y2="120" />
+    <line x1="0" y1="180" x2="1200" y2="180" />
+    <line x1="0" y1="240" x2="1200" y2="240" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="150" y1="0" x2="150" y2="360" />
+    <line x1="300" y1="0" x2="300" y2="360" />
+    <line x1="450" y1="0" x2="450" y2="360" />
+    <line x1="600" y1="0" x2="600" y2="360" />
+    <line x1="750" y1="0" x2="750" y2="360" />
+    <line x1="900" y1="0" x2="900" y2="360" />
+    <line x1="1050" y1="0" x2="1050" y2="360" />
+  </g>
+
+  <!-- Glowing dynamic ambient background orbs -->
+  <circle cx="220" cy="180" r="260" fill="url(#orb1)" class="orb-anim1" />
+  <circle cx="980" cy="140" r="280" fill="url(#orb2)" class="orb-anim1" style="animation-delay: -4s;" />
+
+  <!-- Dynamic Animated Bezier Vector Paths (Background Graphic Flow) -->
+  <g fill="none" opacity="0.5">
+    <path d="M -50 280 C 300 360, 400 100, 750 220 C 1000 310, 1100 160, 1250 180" 
+          stroke="url(#accentGrad)" stroke-width="3" filter="url(#glow)" class="dash-line" />
+    <path d="M -50 120 C 250 40, 500 320, 850 140 C 1050 40, 1150 180, 1250 240" 
+          stroke="#06b6d4" stroke-width="1.5" opacity="0.6" stroke-dasharray="6 8" />
+  </g>
+
+  <!-- Control Handles & Anchor Points (Vector Art Meta-Visual) -->
+  <g fill="#ff4b72" opacity="0.7">
+    <circle cx="400" cy="100" r="4" />
+    <circle cx="750" cy="220" r="4" />
+    <line x1="360" y1="100" x2="440" y2="100" stroke="#ff4b72" stroke-width="1" />
+    <rect x="356" y="96" width="8" height="8" fill="#a855f7" />
+    <rect x="436" y="96" width="8" height="8" fill="#a855f7" />
+  </g>
+
+  <!-- Floating Feature Badges (Dynamic Floating Elements) -->
+  <g class="pill1">
+    <rect x="920" y="50" width="210" height="34" rx="17" fill="rgba(255,255,255,0.06)" stroke="rgba(168,85,247,0.4)" stroke-width="1" />
+    <text x="1025" y="72" fill="#c084fc" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" text-anchor="middle">✨ AI Text-to-SVG Tools</text>
+  </g>
+  <g class="pill2">
+    <rect x="870" y="280" width="240" height="34" rx="17" fill="rgba(255,255,255,0.06)" stroke="rgba(59,130,246,0.4)" stroke-width="1" />
+    <text x="990" y="302" fill="#60a5fa" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" text-anchor="middle">⚡ Bitmap-to-Vector Tracing</text>
+  </g>
+
+  <!-- FOREGROUND CONTENT: Header & Subtitle strictly clear & readable -->
+  <g transform="translate(80, 110)">
+    <!-- Category Badge -->
+    <rect x="0" y="0" width="250" height="28" rx="14" fill="url(#badgeGrad)" opacity="0.2" />
+    <rect x="0" y="0" width="250" height="28" rx="14" fill="none" stroke="#38bdf8" stroke-width="1" />
+    <text x="125" y="19" fill="#38bdf8" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" text-anchor="middle">VECTOR GRAPHICS &amp; GENERATIVE AI</text>
+
+    <!-- Main Title -->
+    <text x="0" y="78" fill="#ffffff" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="800" letter-spacing="-0.5">
+      Awesome Vector Art &amp; SVG Tools
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="118" fill="#94a3b8" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="400">
+      Curated Generative AI Text-to-SVG Models, Vectorizers, Editors, Optimizers &amp; Drawing APIs
+    </text>
+
+    <!-- Pills / Tags under subtitle -->
+    <g transform="translate(0, 148)">
+      <rect x="0" y="0" width="120" height="24" rx="6" fill="rgba(255, 255, 255, 0.07)" />
+      <text x="60" y="16" fill="#cbd5e1" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="500" text-anchor="middle">🎨 Generative SVG</text>
+
+      <rect x="130" y="0" width="130" height="24" rx="6" fill="rgba(255, 255, 255, 0.07)" />
+      <text x="195" y="16" fill="#cbd5e1" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="500" text-anchor="middle">📐 Bézier Tracing</text>
+
+      <rect x="270" y="0" width="135" height="24" rx="6" fill="rgba(255, 255, 255, 0.07)" />
+      <text x="337" y="16" fill="#cbd5e1" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="500" text-anchor="middle">🛠️ Editors &amp; SVGO</text>
+
+      <rect x="415" y="0" width="140" height="24" rx="6" fill="rgba(255, 255, 255, 0.07)" />
+      <text x="485" y="16" fill="#cbd5e1" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="500" text-anchor="middle">💻 Code &amp; Runtimes</text>
+    </g>
+  </g>
+</svg>
